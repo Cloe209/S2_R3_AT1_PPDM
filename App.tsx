@@ -1,20 +1,29 @@
-import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, Text, View } from 'react-native';
+import React from "react";
+
+// Stack Navigation
+import { NavigationContainer } from "@react-navigation/native"; 
+import { createNativeStackNavigator } from "@react-navigation/native-stack"; 
+
+// Páginas
+import Home from "./src/pages/Home";
+import GPS from "./src/pages/GPS"; 
+import Camera from "./src/pages/camera";
+import Accelerometer from "./src/pages/accelerometer";
+
+
+const Stack = createNativeStackNavigator();
 
 export default function App() {
   return (
-    <View style={styles.container}>
-      <Text>Open up App.tsx to start working on your app!</Text>
-      <StatusBar style="auto" />
-    </View>
+    <NavigationContainer> 
+      <Stack.Navigator initialRouteName="Home"> 
+        <Stack.Screen name="Home" component={Home} />
+        <Stack.Screen name="GPS" component={GPS} />
+        <Stack.Screen name="Camera" component={Camera} />
+        <Stack.Screen name="Accelerometer" component={Accelerometer} />
+      </Stack.Navigator>
+    </NavigationContainer>
   );
 }
 
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-});
+// CLARA VOCÊ JÁ TERMINOU A ATV, NA PRÓXIMA AULA É SÓ MANDAR!!!!
